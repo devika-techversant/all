@@ -1,0 +1,124 @@
+```javascript
+$(document).ready(function() {
+```
+This line sets up a function that will be executed when the DOM (Document Object Model) is ready. It ensures that the JavaScript code runs after the HTML document has finished loading.
+
+```javascript
+$("#formToValidate").submit(function(event) {
+```
+This line attaches an event handler to the form with the ID "formToValidate". It specifies that the function inside will be executed when the form is submitted.
+
+```javascript
+event.preventDefault();
+```
+This line prevents the default form submission behavior, which would cause the page to reload.
+
+```javascript
+function isValidEmail(email) {
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+}
+```
+This defines a function named `isValidEmail` that takes an email as a parameter. It uses a regular expression pattern to validate the email format. The function returns `true` if the email is valid and `false` otherwise.
+
+```javascript
+function isValidPhoneNumber(phoneNumber) {
+    let phoneNumberPattern = /^\d{10}$/;
+    return phoneNumberPattern.test(phoneNumber);
+}
+```
+This defines a function named `isValidPhoneNumber` that takes a phone number as a parameter. It uses a regular expression pattern to validate the phone number format. The function returns `true` if the phone number is valid and `false` otherwise.
+
+```javascript
+$(".errorMessage").empty();
+```
+This line clears the content of all elements with the class "errorMessage". It ensures that any previous error messages are removed before validating the form inputs again.
+
+```javascript
+let firstName = $("#firstName").val().trim();
+let lastName = $("#lastName").val().trim();
+let emailID = $("#emailID").val().trim();
+let phoneNumber = $("#phoneNumber").val().trim();
+let password = $("#password").val().trim();
+let gender = $("input[name='gender']:checked").val();
+let agreeMessage = $("input[name='agreeMessage']:checked").length > 0;
+let termsAgreement = $("input[name='termsAgreement']:checked").length > 0;
+let feedback = $("#feedback").val().trim();
+```
+These lines fetch the values of various form inputs and store them in variables. The `.val()` function is used to get the values, and `.trim()` is used to remove leading and trailing whitespace from the values. The `gender`, `agreeMessage`, and `termsAgreement` variables are boolean values indicating whether the corresponding radio buttons or checkboxes are checked.
+
+```javascript
+if (firstName === "") {
+    $("#firstName").siblings(".errorMessage").text("First name is required.");
+}
+```
+This block validates the "First Name" field. If the field is empty, it sets the error message text for the field's sibling element with the class "errorMessage" to indicate that the first name is required.
+
+```javascript
+if (lastName === "") {
+    $("#lastName").siblings(".errorMessage").text("Last name is required.");
+}
+```
+Similar to the previous block, this one validates the "Last Name" field.
+
+```javascript
+if (emailID === "") {
+    $("#emailID").siblings(".errorMessage").text("Email ID is required.");
+} else if (!isValidEmail(emailID)) {
+    $("#emailID").siblings(".errorMessage").text("Invalid email ID.");
+}
+```
+This block validates the "Email ID" field. If the field is empty, it sets the error message text for the field's sibling element. If the email is not empty, it checks if it is a valid email format using the `isValidEmail` function. If it is not
+
+ valid, it sets an error message indicating an invalid email format.
+
+```javascript
+if (phoneNumber === "") {
+    $("#phoneNumber").siblings(".errorMessage").text("Phone number is required.");
+} else if (!isValidPhoneNumber(phoneNumber)) {
+    $("#phoneNumber").siblings(".errorMessage").text("Invalid phone number.");
+}
+```
+This block validates the "Phone Number" field in a similar way to the email validation. It checks if the field is empty and sets an error message if it is. If the field is not empty, it checks if the phone number is a valid format using the `isValidPhoneNumber` function.
+
+```javascript
+if (password === "") {
+    $("#password").siblings(".errorMessage").text("Password is required.");
+}
+```
+This block validates the "Password" field. If the field is empty, it sets the error message text for the field's sibling element to indicate that the password is required.
+
+```javascript
+if (!gender) {
+    $(".radioButtonClass .errorMessage").text("Please select a gender.");
+}
+```
+This block validates the "Gender" field. If no gender option is selected (the `gender` variable is falsy), it sets the error message text for elements with the class "errorMessage" that are children of elements with the class "radioButtonClass" to indicate that a gender selection is required.
+
+```javascript
+if (!agreeMessage) {
+    $(".checkboxClass .errorMessage").text("Please agree to be contacted.");
+}
+```
+This block validates the "Agree Message" field. If the corresponding checkbox is not checked (the `agreeMessage` variable is falsy), it sets the error message text for elements with the class "errorMessage" that are children of elements with the class "checkboxClass" to indicate that agreement to be contacted is required.
+
+```javascript
+if (!termsAgreement) {
+    $(".checkboxClassTwo .errorMessage").text("Please agree to be contacted.");
+}
+```
+This block validates the "Terms Agreement Message" field. If the corresponding checkbox is not checked (the `termsAgreement` variable is falsy), it sets the error message text for elements with the class "errorMessage" that are children of elements with the class "checkboxClassTwo" to indicate that agreement to be contacted is required.
+
+```javascript
+if (stateInIndia === "") {
+    $("#stateInIndia").siblings(".errorMessage").text("Please select a country.");
+}
+```
+This block validates the "State" field. If the variable `stateInIndia` is empty, it sets the error message text for the sibling element of the element with the ID "stateInIndia" to indicate that a country selection is required. However, in the provided code, the `stateInIndia` variable is commented out, so this block will not be executed.
+
+```javascript
+if ($(".errorMessage").text() === "") {
+    alert("Form submitted successfully!");
+}
+```
+This block checks if there are any error messages displayed. It selects all elements with the class "errorMessage" and retrieves their text content. If the text content is empty, it means there are no error messages, so it displays an alert message indicating successful form submission. Otherwise, the form submission is prevented, and the user will see the error messages for the invalid fields.

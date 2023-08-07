@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="shortcut icon" href="assets/images/form.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <form id="formToValidate" >
+
+            <h1><u>Form Validation (Form)</u></h1>
+
+            <div class="inputClass">
+                <label for="firstName">Enter your First name:</label>
+                <input type="text" id="firstName" name="firstName"> 
+                <!-- <input type="text" id="firstName" name="firstName" required> -->
+                <div class="errorMessage"></div>
+            </div>
+
+            <div class="inputClass">
+                <label for="lastName">Enter your Last name:</label>
+                <input type="text" id="lastName" name="lastName">
+                <!-- <input type="text" id="lastName" name="lastName" required> -->
+                <div class="errorMessage"></div>
+            </div>
+
+            <div class="inputClass">
+                <label for="emailID">Enter your email ID:</label>
+                <input type="text" id="emailID" name="emailID">
+                <div class="errorMessage"></div>
+            </div>
+
+            <div class="inputClass">
+                <label for="phoneNumber">Enter your Phone number:</label>
+                <input type="num" id="phoneNumber" name="phoneNumber">
+                <div class="errorMessage"></div>
+            </div>
+
+            <div class="inputClass">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <div class="errorMessage"></div>
+            </div>
+
+            <div class="radioButtonClass">
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="Male">Male <img class="smallIcon" src="assets/icons/blueHeart.png" alt="Blue Heart"></label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="Female">Female <img class="smallIcon" src="assets/icons/pinkHeart.png" alt="Pink Heart"></label>
+                <input type="radio" id="others" name="gender" value="Others">
+                <label for="Others">Others <img class="smallIcon" src="assets/icons/rainbowHeart.png" alt="Rainbow Heart"></label>
+            </div>
+
+            <div class="checkboxClass">
+                <div class="cb">
+                    <input type="checkbox" id="agreeToReceiveMail" name="agreeMessage" value="agreeToReceiveMail">
+ 				    <label for="agreeToReceiveMail">I agree to be contacted by email</label>
+                     <img class="smallIcon" src="assets/icons/gmail.png" alt="Mail Logo">
+                </div>
+                <div class="cb">
+                    <input type="checkbox" id="agreeToReceiveSMS" name="agreeMessage" value="agreeToReceiveSMS">
+                    <label for="agreeToReceiveSMS">I agree to be contacted by SMS</label>
+                    <img class="smallIcon" src="assets/icons/sms.png" alt="Mail Logo">
+                </div>
+                <div class="cb">
+                    <input type="checkbox" id="agreeToReceiveWhatsappMessage" name="agreeMessage" value="agreeToReceiveWhatsappMessage">
+                    <label for="agreeToReceiveWhatsappMessage">I agree to be contacted through WhatsApp</label>
+                    <img class="smallIcon" src="assets/icons/whatsapp.png" alt="Mail Logo">
+                </div>
+            </div>
+
+            <div class="checkboxClassTwo">
+                <input type="checkbox" id="termsAgreement" name="termsAgreement" value="termsAgreement" required>
+ 				<label for="termsAgreement">I agree to <a href="">Terms & Conditions</a></label>
+                <img class="smallIcon" src="assets/icons/verification.png" alt="Tick">
+            </div>
+
+            <div class="dropDownClass">
+                <label for="stateInIndia">Choose your State:</label>
+                <select name="stateInIndia">
+                    <option value="andhraPradesh">Andhra Pradesh</option>
+                    <option value="arunachalPradesh">Arunachal Pradesh</option>
+                    <option value="assam">Assam</option>
+                    <option value="bihar">Bihar</option>
+                    <option value="chhattisgarh">Chhattisgarh</option>
+                    <option value="goa">Goa</option>
+                    <option value="gujarat">Gujarat</option>
+                    <option value="haryana">Haryana</option>
+                    <option value="himachalPradesh">Himachal Pradesh</option>
+                    <option value="jammuAndKashmir">Jammu and Kashmir</option>
+                    <option value="jharkhand">Jharkhand</option>
+                    <option value="karnataka">Karnataka</option>
+                    <option id="kerala" value="kerala">Kerala</option>
+                    <option value="madhyaPradesh">Madhya Pradesh</option>
+                    <option value="maharashtra">Maharashtra</option>
+                    <option value="manipur">Manipur</option>
+                    <option value="meghalaya">Meghalaya</option>
+                    <option value="mizoram">Mizoram</option>
+                    <option value="nagaland">Nagaland</option>
+                    <option value="odisha">Odisha</option>
+                    <option value="punjab">Punjab</option>
+                    <option value="rajasthan">Rajasthan</option>
+                    <option value="sikkim">Sikkim</option>
+                    <option value="tamilNadu"></option>
+                    <option value="telangana">Telangana</option>
+                    <option value="tripura">Tripura</option>
+                    <option value="uttarPradesh">Uttar Pradesh</option>
+                    <option value="uttarakhand">Uttarakhand</option>
+                    <option value="westBengal">West Bengal</option>
+                </select>
+            </div>
+
+            <div class="testAreaClass">
+                <label for="feedback">Feedback <img class="smallIcon" src="assets/icons/feedback.png" alt="Feedback">:</label><br>
+                <textarea name="feedback" id="feedback" cols="75" rows="5" required></textarea>
+                <div id="errorMessage"></div>
+            </div>
+
+            <button type="submit">Sign In</button>
+            
+        </form> 
+
+    </div>
+
+    <script src="js/script.js"></script>
+    
+</body>
+</html>

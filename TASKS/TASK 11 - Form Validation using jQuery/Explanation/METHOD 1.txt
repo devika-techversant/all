@@ -1,0 +1,110 @@
+```javascript
+$(document).ready(function() {
+```
+This line waits for the document (HTML page) to be fully loaded and ready before executing the JavaScript code inside the function.
+
+```javascript
+$("#formToValidate").submit(function(event) {
+```
+This line selects the form with the ID "formToValidate" and attaches a submit event handler function to it. When the form is submitted, this function will be executed.
+
+```javascript
+event.preventDefault();
+```
+This line prevents the default form submission behavior, which would normally cause the page to reload. By calling `preventDefault()`, the form submission is intercepted, and the custom validation code can be executed.
+
+```javascript
+validateInputs();
+```
+This line calls the `validateInputs()` function when the form is submitted. This function performs the validation of the form inputs.
+
+```javascript
+function setError(element, message) {
+```
+This line declares a function named `setError` that takes two parameters: `element` (representing the input element to which the error should be applied) and `message` (representing the error message to display).
+
+```javascript
+const inputControl = $(element).parent();
+```
+This line selects the parent element of the input element specified by `element`. It assumes that the input element is contained within a parent element that controls its display.
+
+```javascript
+const errorDisplay = inputControl.find(".errorMessage");
+```
+This line finds an element with the class "errorMessage" within the `inputControl` element. It assumes that there is an element within the `inputControl` element that will display the error message.
+
+```javascript
+errorDisplay.html(message);
+```
+This line sets the HTML content of the `errorDisplay` element to the specified `message`. This will display the error message in the designated error display element.
+
+```javascript
+inputControl.addClass("errorStyle").removeClass("successStyle");
+```
+This line adds the CSS class "errorStyle" to the `inputControl` element and removes the CSS class "successStyle". This will apply the error styling to the input element.
+
+```javascript
+function setSuccess(element) {
+```
+This line declares a function named `setSuccess` that takes one parameter: `element` (representing the input element to which the success state should be applied).
+
+```javascript
+const inputControl = $(element).parent();
+```
+Similar to before, this line selects the parent element of the input element specified by `element`.
+
+```javascript
+const errorDisplay = inputControl.find(".errorMessage");
+```
+Similar to before, this line finds an element with the class "errorMessage" within the `inputControl` element.
+
+```javascript
+errorDisplay.html("");
+```
+This line sets the HTML content of the `errorDisplay` element to an empty string, effectively clearing any previously displayed error message.
+
+```javascript
+inputControl.addClass("successStyle").removeClass("errorStyle");
+```
+This line adds the CSS class "successStyle" to the `inputControl` element and removes the CSS class "errorStyle". This will apply the success styling to the input element.
+
+The next three functions, `isValidName`, `isValidEmailID`, and `isValidNumber`, are validation functions that check whether the provided values match certain patterns using regular expressions. These functions return `true` if the value is valid according to the specified pattern, and `false` otherwise.
+
+The `validateInputs()` function is the main function responsible for validating the form inputs.
+
+```javascript
+const firstNameValue = $("#firstName").val().trim();
+```
+This line retrieves the value of the input field with the ID "firstName", trims any leading/trailing white spaces, and stores it in the `firstNameValue`
+
+ variable.
+
+The subsequent lines do the same for the other form input fields: `lastNameValue`, `emailIDValue`, `phoneNumberValue`, and `passwordValue`.
+
+The validation for each input field follows a similar pattern:
+
+```javascript
+if (firstNameValue === "") {
+    setError("#firstName", "First Name is required");
+} else if (!isValidName(firstNameValue)) {
+    setError("#firstName", "Please provide a valid first name");
+} else {
+    setSuccess("#firstName");
+}
+```
+This block checks the value of `firstNameValue` to determine if it's empty. If it is, the `setError` function is called to display the corresponding error message. If not, it checks if the value is a valid name using the `isValidName` function. If it's not a valid name, the `setError` function is called with a different error message. Finally, if the value passes both checks, the `setSuccess` function is called to indicate a successful input.
+
+The same pattern is applied for `lastNameValue`, `emailIDValue`, `phoneNumberValue`, and `passwordValue`.
+
+```javascript
+if ($(".errorMessage").text() === "") {
+    // Uncomment the line below to submit the form
+    // $("#formToValidate").submit();
+    alert("Form submitted successfully!");
+}
+```
+This block checks if there are any error messages displayed on the page by selecting elements with the class "errorMessage" and checking if their text content is empty. If there are no error messages, the form submission is considered successful, and an alert message is displayed.
+
+Note that the actual form submission is commented out in this code snippet (`$("#formToValidate").submit();`). You would need to uncomment that line if you want the form to be submitted to the server.
+
+That's a detailed explanation of each line in the provided code. It's a form validation script that validates various input fields and displays error messages or success states based on the validation results.

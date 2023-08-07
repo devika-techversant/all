@@ -1,0 +1,16 @@
+TASK 1: https://github.com/devika-techversant/Customized-google-homepage-clone
+TASK 2: https://github.com/devika-techversant/Gmail-inbox-clone
+TASK 3: https://github.com/devika-techversant/StackOverflow-profile-clone
+TASK 4: 1. https://github.com/devika-techversant/Chessboard
+	2. https://github.com/devika-techversant/Chessboard-using-bootstrap
+	3. https://github.com/devika-techversant/Chessboard-using-float-clear
+	4. https://github.com/devika-techversant/Changing-color-alt-div
+TASK 5: https://github.com/devika-techversant/Gmail-inbox-clone-bootstrap
+TASK 6: https://github.com/devika-techversant/StackOverflow-profile-clone-MediaQuery
+TASK 7: https://github.com/devika-techversant/Basic-JSProgrammingFundamentals-Level1
+TASK 8: https://github.com/devika-techversant/Basic-JSProgrammingFundamentals-Level2
+TASK 9: Try 1 (fail): https://github.com/devika-techversant/Time_Schedule-Tesk_Task
+	Try 2 (success).https://github.com/devika-techversant/Time_Schedule-Test_Task_1
+TASK 10:https://github.com/devika-techversant/Form-Validation_using_JS
+TASK 11: https://github.com/devika-techversant/Form-Validation_using_jQuery
+TASK 12: https://github.com/devika-techversant/Myntra_Clone-Test_Task_2

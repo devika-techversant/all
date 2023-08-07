@@ -1,0 +1,109 @@
+```javascript
+$(document).ready(function() {
+```
+This line ensures that the following code executes only after the document (HTML page) has finished loading.
+
+```javascript
+$("#formToValidate").submit(function(event) {
+    event.preventDefault();
+```
+This code sets up an event handler for the form with the ID "formToValidate" when it is submitted. The `event.preventDefault()` prevents the default form submission behavior, allowing us to perform custom validation and actions.
+
+```javascript
+let firstName = $('#firstName').val();
+let lastName = $('#lastName').val();
+let password = $('#password').val();
+let emailID = $('#emailID').val();
+let phoneNumber = $('#phoneNumber').val();
+let feedback = $('#feedback').val();
+```
+These lines retrieve the values entered by the user in various form fields. The values are stored in variables for further validation and processing.
+
+```javascript
+$(".error").remove();
+```
+This line removes any existing error messages from the form. The error messages are displayed later if there are validation errors.
+
+```javascript
+if(firstName.length<1){
+    $('#firstName').after('<div class="error">name is required</div>');
+}
+```
+This code checks if the `firstName` field is empty. If it is, it appends an error message after the `firstName` field, indicating that the name is required.
+
+```javascript
+if(lastName.length<1){
+    $('#lastName').after('<div class="error">name is required</div>');
+}
+```
+Similar to the previous block, this code checks if the `lastName` field is empty and appends an error message if it is.
+
+```javascript
+if(password.length<5){
+    $('#password').after('<div class="error">password should have 8 characters</div>');
+}
+```
+This code checks if the `password` field has less than 5 characters. If it does, it appends an error message after the `password` field, indicating that the password should have at least 8 characters.
+
+```javascript
+if (emailID.length < 1) {
+    $('#emailID').after('<div class="error">enter the email</div>');
+} else {
+    var regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var validEmail = regEx.test(emailID);
+    if (!validEmail) {
+        $('#email').after('<div class="error">Enter a valid email</div>');
+    }
+}
+```
+This code checks if the `emailID` field is empty. If it is, it appends an error message after the `emailID` field, indicating that the email should be entered. If the field is not empty, it uses a regular expression (`regEx`) to validate the email format. If the email is not valid, it appends an error message after the `emailID` field, indicating that a valid email should be entered.
+
+```javascript
+if(isNaN(phoneNumber) || phoneNumber.length <10 || phoneNumber.length>10){
+    $('#phoneNumber').after('<div class="error">enter the phone number</div>');
+}
+```
+This code checks if the `phoneNumber` field contains a non-numeric value (`isNaN(phoneNumber)`), or if its length is less than 10 or greater than 10. If any of these conditions are true, it app
+
+ends an error message after the `phoneNumber` field, indicating that a valid phone number should be entered.
+
+```javascript
+if($('input[name="gender"]:checked').length == 0){
+    $('.radioButtonClass').after('<div class="error">select any</div>');
+}
+```
+This code checks if none of the radio buttons with the name `gender` are checked. If none are checked, it appends an error message after the element with the class `radioButtonClass`, indicating that a gender option should be selected.
+
+```javascript
+if($('input[name="agreeMessage"]:checked').length == 0){
+    $('.checkboxClass').after('<div class="error">select any</div>');
+}else{
+}
+```
+This code checks if none of the checkboxes with the name `agreeMessage` are checked. If none are checked, it appends an error message after the element with the class `checkboxClass`, indicating that at least one checkbox option should be selected.
+
+```javascript
+if($('input[name="termsAgreement"]:checked').length == 0){
+    $('#termsAgreement').after('<div class="error">select any</div>');
+}else{
+}
+```
+This code checks if the checkbox with the name `termsAgreement` is not checked. If it is not checked, it appends an error message after the element with the ID `termsAgreement`, indicating that the terms should be agreed to.
+
+```javascript
+if(feedback.length < 1){
+    $('#feedback').after('<div class="error">select any</div>');
+}
+```
+This code checks if the `feedback` field is empty. If it is, it appends an error message after the `feedback` field, indicating that feedback should be entered.
+
+```javascript
+if ($(".error").text() === "") {
+    // Uncomment the line below to submit the form
+    // $("#formToValidate").submit();
+    alert("Form submitted successfully!");
+}
+```
+This code checks if there are no error messages present in the form. If there are no error messages (`.error`), it displays an alert message saying "Form submitted successfully!".
+
+The code is an example of form validation using jQuery. It checks various form fields for errors and displays error messages dynamically. If there are no errors, it alerts the user with a success message and can optionally submit the form.
